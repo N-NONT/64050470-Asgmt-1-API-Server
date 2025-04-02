@@ -21,23 +21,20 @@ export const getDroneLogs = async (droneId) => {
 };
 
 
-// import axios from "axios";
+export const saveDroneLog = async (logData) => {
 
-// export const serviceDroneConfig = async (droneId) => {
-//   try {
-//     const response = await axios.get(process.env.DRONE_CONFIG_API);
-    
-//     if (response.data.status !== "ok") {
-//       throw new Error("Invalid response from server");
-//     }
+    const AUTH_HEADER = { Authorization: "Bearer 20250301efx" };
 
-//     const droneData = response.data.data.find(d => d.drone_id == droneId);
-
-//     return droneData || null;  
-
-//   } catch (error) {
-//     console.error("Error fetching drone config:", error.message);
-//     return null;  
-//   }
-// };
-
+    try {
+      const response = await axios.post(process.env.DRONE_LOG_SERVER, logData, { headers: AUTH_HEADER });
+  
+      if (!response.data) {
+        throw new Error("Failed to save drone log");
+      }
+  
+      return response.data;
+    } catch (error) {
+      console.error("Error saving drone log:", error.message);
+      throw error;
+    }
+  };
