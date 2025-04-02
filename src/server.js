@@ -4,6 +4,7 @@ import cors from "cors";
 import errorHandler from "./middleware/errorHandler.js";
 import configRoutes from "./routes/configRoutes.js";
 import statusRoutes from "./routes/statusRoutes.js";
+import logsRoutes from "./routes/logsRoutes.js";
 
 
 
@@ -17,6 +18,8 @@ app.use(express.json());
 
 app.use("/configs", configRoutes);
 app.use("/status", statusRoutes);
+app.use("/logs", logsRoutes);
+
 
 app.use(errorHandler);
 app.listen(PORT, () => {
