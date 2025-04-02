@@ -5,6 +5,7 @@ import errorHandler from "./middleware/errorHandler.js";
 import configRoutes from "./routes/configRoutes.js";
 import statusRoutes from "./routes/statusRoutes.js";
 import logsRoutes from "./routes/logsRoutes.js";
+import informationRoutes from "./routes/informationRoutes.js";
 
 
 
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-
+app.use("/", informationRoutes);
 app.use("/configs", configRoutes);
 app.use("/status", statusRoutes);
 app.use("/logs", logsRoutes);
