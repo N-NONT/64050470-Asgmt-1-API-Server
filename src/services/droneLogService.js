@@ -2,21 +2,38 @@ import axios from "axios";
 
 export const getDroneLogs = async (droneId) => {
   try {
-    const response = await axios.get(process.env.DRONE_LOG_SERVER);
+    const firstResponse = await axios.get(process.env.DRONE_LOG_SERVER, {
+      params: { page: 1, perPage: 500 },
+      timeout: 10000,
+    });
 
-    if (!response.data || !response.data.items) {
+    if (!firstResponse.data || !firstResponse.data.items) {
       throw new Error("Invalid response format");
     }
-    
-    const logData = response.data.items.filter(d => d.drone_id == droneId);
 
-    // console.log("Drone Logs:", logData);
+    const totalPages = firstResponse.data.totalPages;
+    let allLogs = firstResponse.data.items.filter((d) => d.drone_id == droneId);
 
-    return logData;  
+    for (let page = 2; page <= totalPages; page++) {
+      try {
+        const res = await axios.get(process.env.DRONE_LOG_SERVER, {
+          params: { page, perPage: 500 },
+          timeout: 10000,
+        });
+
+        if (res.data && res.data.items) {
+          allLogs = [...allLogs, ...res.data.items.filter((d) => d.drone_id == droneId)];
+        }
+      } catch (err) {
+        console.warn(`Error fetching page ${page}:`, err.message);
+      }
+    }
+
+    return allLogs;
 
   } catch (error) {
     console.error("Error fetching drone logs:", error.message);
-    return [];  
+    return [];
   }
 };
 
