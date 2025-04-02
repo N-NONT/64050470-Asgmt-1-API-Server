@@ -5,6 +5,11 @@ export const getConfig = async (req, res, next) => {
     const { droneId } = req.params;
     const config = await serviceDroneConfig(droneId);
     // console.log(config)
+
+    if (!config) {
+        return res.json({}); 
+      }
+
     const data = {  drone_id: config.drone_id,
                     drone_name: config.drone_name,
                     light: config.light,
