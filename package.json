@@ -2,8 +2,7 @@
   "name": "64050470-asgmt-1-api-server",
   "type": "module",
   "version": "1.0.0",
-  "main": "src/server.js"
-,
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --legacy-watch src/server.js",
@@ -13,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "64050470-asgmt-1-api-server": "file:",
     "axios": "^1.8.4",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
