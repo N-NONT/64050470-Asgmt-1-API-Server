@@ -14,15 +14,9 @@ export const serviceDroneConfig = async (droneId) => {
     if (!droneData) {
       throw new Error(`Drone with ID ${droneId} not found`);
     }
+    
+    return droneData;
 
-    return {
-      drone_id: droneData.drone_id,
-      drone_name: droneData.drone_name,
-      light: droneData.light,
-      country: droneData.country,
-      weight: droneData.weight
-
-    };
   } catch (error) {
     console.error("Error fetching drone config:", error.message);
     throw error;
