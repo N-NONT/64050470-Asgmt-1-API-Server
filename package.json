@@ -2,10 +2,12 @@
   "name": "64050470-asgmt-1-api-server",
   "type": "module",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "src/server.js"
+,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --legacy-watch src/server.js"
+    "dev": "nodemon --legacy-watch src/server.js",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
