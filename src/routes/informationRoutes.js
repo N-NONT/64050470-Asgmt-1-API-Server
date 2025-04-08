@@ -147,11 +147,14 @@ router.get("/", (req, res) => {
                     <h3>รายละเอียดเพิ่มเติม</h3>
                     <ul>
                         <li><strong>GET :</strong> /configs/:droneId 
-                            <span class="description">- ดึงข้อมูลจาก configs จาก Server1 ตาม droneId</span></li>
+                            <span class="description">- ดึงข้อมูลจาก configs จาก Server1 ตาม droneId</span>
+                            <span class="description">- Ex. : <a href="https://assignment1-470-371682635124.asia-southeast1.run.app/configs/3001" target="_blank">https://assignment1-470-371682635124.asia-southeast1.run.app/configs/3001</a></li>
                         <li><strong>GET :</strong> /status/:droneId 
-                            <span class="description">- ดึงข้อมูลสถานะของ drone จาก Server1 ตาม droneId</span></li>
+                            <span class="description">- ดึงข้อมูลสถานะของ drone จาก Server1 ตาม droneId</span>
+                            <span class="description">- Ex. : <a href="https://assignment1-470-371682635124.asia-southeast1.run.app/status/3001" target="_blank">https://assignment1-470-371682635124.asia-southeast1.run.app/status/3001</a></span></li>
                         <li><strong>GET :</strong> /logs/:droneId 
-                            <span class="description">- ประวัติ Logs ของ Drone จาก Server 2</span></li>
+                            <span class="description">- ประวัติ Logs ของ Drone จาก Server 2</span>
+                            <span class="description">- Ex. : <a href="https://assignment1-470-371682635124.asia-southeast1.run.app/logs/3001" target="_blank">https://assignment1-470-371682635124.asia-southeast1.run.app/logs/3001</a></span></li>
                         <li><strong>POST :</strong> /logs 
                             <span class="description">- บันทึก Log ใหม่ลงใน Server 2</span></li>
                     </ul>
